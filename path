@@ -1,2 +1,3 @@
-# Go
-export GOPATH=$HOME/dev/go
+# Projects and dev tools
+export DEVENV=$HOME/dev
+export PROJECTS=$HOME/projects

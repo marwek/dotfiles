@@ -1,0 +1,20 @@
+# Compiled Python files
+*.py[cod]
+__pycache__
+.pytest_cache
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+.vscode
+.env
+.idea
+logs
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes

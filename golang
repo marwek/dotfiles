@@ -1,0 +1,4 @@
+# Go
+export GOROOT=$DEVENV/go/current
+export GOPATH=$PROJECTS/go
+export PATH=$PATH:$GOPATH/bin
