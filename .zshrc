@@ -1,14 +1,18 @@
+export PATH="/opt/homebrew/bin:/opt/homebrew/opt/curl/bin:/usr/local/opt/m4/bin:/usr/local/opt/tcl-tk/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+
 # zsh init
-autoload -U compinit
-compinit -u
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-# spaceship init
+    autoload -Uz compinit
+    compinit
+fi
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#C678DD,bg=black,bold,underline"
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 autoload -U promptinit; promptinit
-# prompt spaceship
-# SPACESHIP_TIME_SHOW=true
-# SPACESHIP_DIR_TRUNC=0
-eval "$(oh-my-posh --init --shell zsh --config ~/dotfiles/ohmyposh-config.json)"
-
+eval "$(oh-my-posh --init --shell zsh --config ~/.dotfiles/ohmyposh-config.json)"
 
 bindkey '^I' complete-word
 
@@ -30,32 +34,20 @@ setopt EXTENDED_HISTORY
 HOSTNAME="`hostname`"
 PAGER='less'
 
-# starship init
-#eval "$(starship init zsh)"
-export PATH="/usr/local/opt/m4/bin:/usr/local/opt/tcl-tk/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+# devtools
+source ~/.dotfiles/devtools
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PATH:$PYENV_ROOT/bin"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+source ~/.dotfiles/pyenv
 
 # dotfiles imports
-source $HOME/dotfiles/path
-source $HOME/dotfiles/aliases
-source $HOME/dotfiles/golang
-source $HOME/dotfiles/androidstudio
+source $HOME/.dotfiles/aliases
+source $HOME/.dotfiles/golang
+source $HOME/.dotfiles/androidstudio
 
-export PATH="$PATH:/usr/local/opt/openjdk@8/bin"
+# VS Code
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

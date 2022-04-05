@@ -1,5 +1,5 @@
 # Go
-export GOROOT=$DEVENV/go/current
+export GOROOT=$DEVTOOLS/go/current
 export GOPATH=$PROJECTS/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 

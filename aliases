@@ -23,6 +23,9 @@ alias glo1="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 # brew
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 
+# To avoid them accidentally linking against a Pyenv-provided Python
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
 # pip
 alias pip_up='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
 
