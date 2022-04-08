@@ -33,3 +33,10 @@ alias pip_up='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f
 pyclean () {
     find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
 }
+
+# Folder navigation
+alias ~do='cd ~/Downloads'
+alias ~doc='cd ~/Documents'
+alias ~lib='cd ~/Library'
+alias ~app='cd ~/Applications'
+alias ~d='cd ~/Dev'

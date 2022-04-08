@@ -1,5 +1,6 @@
-export PATH="/opt/homebrew/bin:/opt/homebrew/opt/curl/bin:/usr/local/opt/m4/bin:/usr/local/opt/tcl-tk/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/curl/bin:/usr/local/opt/m4/bin:/usr/local/opt/tcl-tk/bin:/usr/local/sbin:/usr/local/bin:$PATH"
 
+export BREW_SHARE=/opt/homebrew/share
 # zsh init
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -9,10 +10,10 @@ if type brew &>/dev/null; then
 fi
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#C678DD,bg=black,bold,underline"
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $BREW_SHARE/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 autoload -U promptinit; promptinit
-eval "$(oh-my-posh --init --shell zsh --config ~/.dotfiles/ohmyposh-config.json)"
+eval "$(oh-my-posh --init --shell zsh --config $HOME/.dotfiles/ohmyposh-config.json)"
 
 bindkey '^I' complete-word
 
@@ -34,20 +35,21 @@ setopt EXTENDED_HISTORY
 HOSTNAME="`hostname`"
 PAGER='less'
 
-# devtools
-source ~/.dotfiles/devtools
-
 # pyenv
-source ~/.dotfiles/pyenv
+source $HOME/.dotfiles/pyenv
+
+# node version manager
+source $HOME/.dotfiles/nvmrc
 
 # dotfiles imports
 source $HOME/.dotfiles/aliases
 source $HOME/.dotfiles/golang
 source $HOME/.dotfiles/androidstudio
 
-# VS Code
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
+# devtools
+source $HOME/.dotfiles/devtools
+
+source $BREW_SHARE/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

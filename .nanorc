@@ -1,0 +1,13 @@
+set linenumbers
+set minibar
+set nowrap
+include /opt/homebrew/share/nano/nanorc.nanorc
+include /opt/homebrew/share/nano/python.nanorc
+include /opt/homebrew/share/nano/default.nanorc
+include /opt/homebrew/share/nano/sh.nanorc
+include /opt/homebrew/share/nano/sql.nanorc
+include /opt/homebrew/share/nano/yaml.nanorc
+include /opt/homebrew/share/nano/json.nanorc
+include /opt/homebrew/share/nano/xml.nanorc
+include /opt/homebrew/share/nano/makefile.nanorc
+include /opt/homebrew/share/nano/go.nanorc
