@@ -1,6 +1,15 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/curl/bin:/usr/local/opt/m4/bin:/usr/local/opt/tcl-tk/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+
+# Homebrew
+# Tell homebrew to not autoupdate every single time I run it (just once a week).
+export HOMEBREW_AUTO_UPDATE_SECS=604800
 
 export BREW_SHARE=/opt/homebrew/share
 # zsh init
@@ -15,9 +24,11 @@ fi
 source $BREW_SHARE/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 autoload -U promptinit; promptinit
-# eval "$(oh-my-posh --init --shell zsh --config $HOME/.dotfiles/ohmyposh-config.json)"
-source $HOME/.dotfiles/spaceshiprc
-source "/opt/homebrew/opt/spaceship/spaceship.zsh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source $HOME/.powerlevel10k/powerlevel10k.zsh-theme
+
 
 bindkey '^I' complete-word
 
@@ -39,10 +50,6 @@ setopt EXTENDED_HISTORY
 HOSTNAME="`hostname`"
 PAGER='less'
 
-# Homebrew
-# Tell homebrew to not autoupdate every single time I run it (just once a week).
-export HOMEBREW_AUTO_UPDATE_SECS=604800
-
 # pyenv
 source $HOME/.dotfiles/pyenv
 
@@ -62,9 +69,6 @@ source $BREW_SHARE/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
