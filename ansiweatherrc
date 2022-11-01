@@ -1,0 +1,41 @@
+api_key:eecb1d87801073a5f9cc25159fd5334f
+location:Szczecin,PL
+units:metric
+show_daylight:true
+fetch_cmd:curl -sf
+show_feels_like:true
+show_uvi:true
+show_wind:true
+show_humidity:true
+show_pressure:true
+forecast:0
+dateformat:%d.%m.%y
+timeformat:%H:%M:%S
+symbols:false
+
+# Text and Colors
+background:\033[40m
+text:\033[36;0m
+data:\033[33;1m
+delimiter:\033[35m:
+dashes:\033[34m-
+forecast_text:Prognoza
+greeting_text:Pogoda w
+humidity_text:Wilgotność
+pressure_text:Ciśnienie
+sunrise_text:Wschód
+sunset_text:Zachód
+wind_directions:N NNE NE ENE E ESE SE SSE S SSW SW WSW W WNW NW NNW
+wind_text:Wiatr
+feels_like_text:Odczuwalna
+
+# Icons
+sun:\033[33;1m\xe2\x98\x80
+moon:\033[36m\xe2\x98\xbd
+clouds:\033[37;1m\xe2\x98\x81
+rain:\033[37;1m\xe2\x98\x94
+fog:\033[37;1m\xe2\x96\x92
+mist:\033[34m\xe2\x96\x91
+haze:\033[33m\xe2\x96\x91
+snow:\033[37;1m\xe2\x9d\x84
+thunderstorm:\033[33;1m\xe2\x9a\xa1

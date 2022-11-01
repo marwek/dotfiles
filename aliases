@@ -40,3 +40,6 @@ alias ~doc='cd ~/Documents'
 alias ~lib='cd ~/Library'
 alias ~app='cd ~/Applications'
 alias ~d='cd ~/Dev'
+
+# Tools
+alias pogoda='ansiweather'
